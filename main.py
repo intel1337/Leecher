@@ -30,8 +30,8 @@ ____ ____ ____ ____ ____ ____ ____
 ||__|||__|||__|||__|||__|||__|||__||
 |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
           
-[0] Exit        [1] DB lookup
-[3] 
+[0] Exit        [1] Single DB Lookup
+[2] Full DB Lookup       []
 """)
     
     inp = input(f"{Fore.GREEN}leecher{Fore.CYAN}@{Fore.GREEN}root--{Fore.CYAN}$")
@@ -46,6 +46,21 @@ ____ ____ ____ ____ ____ ____ ____
         v = input(f"{Fore.GREEN}leecher{Fore.CYAN}@{Fore.GREEN}root--{Fore.CYAN}$")
         line_count = get_lines(x)
         in_file(x, v, line_count)
+    if inp == "2":
+        print(f"Search for a Name / Username / Email / IP / Phone Number / URL")
+        v = input(f"{Fore.GREEN}leecher{Fore.CYAN}@{Fore.GREEN}root--{Fore.CYAN}$")
+        print("List of db's : ",os.listdir("./db/"))
+        db = os.listdir("./db/")
+        for i in db:
+            line_count = get_lines("./db/" + i)
+            print(f"Reading {i}")
+            in_file("./db/" + i, v, line_count)
+
+
+        
+
+                                                    
+
 
 if __name__ == "__main__":
     os.system('clear')
